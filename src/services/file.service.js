@@ -1,6 +1,6 @@
 const { resolve } = require('path');
 const { readdir } = require('fs').promises;
-const File = require('./File');
+const File = require('../models/File');
 
 const defaultCriteria = {
   excludedDirectories: ['node_modules'],
