@@ -1,19 +1,24 @@
+const shell = require('shelljs-exec-proxy');
+const express = require('express');
+const router = require('./src/app.router');
 require('dotenv').config();
 
-const express = require('express');
-const feedbackController = require('./src/controllers/feedback.controller');
-
 const app = express();
+const name = process.env.APP_NAME;
 const port = process.env.APP_PORT;
 
-app.get('/feedback', feedbackController.getFeedback);
+if (!shell.which('git')) {
+  throw new Error(`${name} requires Git to be installed.`);
+}
+
+app.use(router);
 
 app.listen(port, () => {
-  console.log(`Feedback Factory is listen on port ${port}`)
+  console.log(`${name} is listen on port ${port}`)
 });
 
 process.on('SIGINT', () => {
-  // TODO: Cleanup "temp" folder
-  process.exit(); // graceful shutdown
+  shell.rm('-rf', './temp/*'); // cleanup temp folder
+  shell.exit(); // graceful shutdown
+  process.exit();
 });
-

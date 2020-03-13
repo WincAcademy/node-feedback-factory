@@ -1,6 +1,6 @@
 const { resolve, join } = require('path');
-const Repository = require('../models/Repository');
 const shell = require('shelljs-exec-proxy');
+const Repository = require('../models/Repository');
 
 const STORAGE_PATH = resolve('./temp');
 const REPOSITORIES = {}; // lazy cache using a hashmap
@@ -10,10 +10,6 @@ const PROVIDERS = {
     url: 'http://www.github.com'
   }
 };
-
-if (!shell.which('git')) {
-  throw new Error('Git service requires git to be installed');
-}
 
 /**
  * Retrieve a repository from the given url.

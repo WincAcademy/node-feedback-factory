@@ -13,6 +13,7 @@ All available NPM tasks:
 $ "start": "node ./main.js",
 $ "watch": "nodemon ./main.js",
 $ "test": "jest"
+$ "cleanup": "rm -rf ./temp/*"
 ```
 
 ## Modules
