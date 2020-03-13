@@ -1,8 +1,8 @@
 {
   "name": "node-feedback-factory",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A lightweight Node.js implementation to validate code from public repositories.",
+  "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
     "watch": "nodemon src/app.js --watch src",
