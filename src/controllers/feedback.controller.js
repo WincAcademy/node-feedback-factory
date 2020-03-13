@@ -12,11 +12,11 @@ async function getFeedback(req, res) {
 
     res.json({
       repo,
-      files,
       feedback
     });
-  } catch (e) {
-    res.status(400, 'Something went wrong.');
+  } catch (err) {
+    console.error(err);
+    res.status(400).send('Something went wrong.');
   }
 }
 

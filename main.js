@@ -12,3 +12,8 @@ app.listen(port, () => {
   console.log(`Feedback Factory is listen on port ${port}`)
 });
 
+process.on('SIGINT', () => {
+  // TODO: Cleanup "temp" folder
+  process.exit(); // graceful shutdown
+});
+
