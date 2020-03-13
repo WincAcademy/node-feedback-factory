@@ -1,12 +1,14 @@
 const htmlHint = require('htmlhint');
 const htmlHinter = new htmlHint.HTMLHint();
 const htmlHinterConfig = {};
+const ValidationResult = require('../models/ValidationResult');
 
 class HtmlValidator {
-  extension = '.css';
+  extension = '.html';
 
   async run(code) {
-    return htmlHinter.verify(code);
+    const errors = htmlHinter.verify(code);
+    return new ValidationResult(errors.length === 0, errors);
   }
 }
 

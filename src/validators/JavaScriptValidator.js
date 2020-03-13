@@ -7,8 +7,8 @@ class JavaScriptValidator {
   extension = '.js';
 
   async run(code) {
-    const result = esLinter.verify(code, esLintConfig);
-    return new ValidationResult(false, result);
+    const errors = esLinter.verify(code, esLintConfig);
+    return new ValidationResult(errors.length === 0, errors);
   }
 }
 
