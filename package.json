@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./main.js",
-    "watch": "nodemon ./main.js",
+    "start": "node src/app.js",
+    "watch": "nodemon src/app.js --watch src",
     "test": "jest",
     "cleanup": "rm -rf ./temp/*"
   },

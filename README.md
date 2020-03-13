@@ -10,8 +10,8 @@ A lightweight Node.js implementation to validate code from public repositories.
 All available NPM tasks:
 
 ```bash
-$ "start": "node ./main.js",
-$ "watch": "nodemon ./main.js",
+$ "start": "node ./app.js",
+$ "watch": "nodemon ./app.js",
 $ "test": "jest"
 $ "cleanup": "rm -rf ./temp/*"
 ```

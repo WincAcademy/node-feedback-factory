@@ -1,6 +1,6 @@
 const shell = require('shelljs-exec-proxy');
 const express = require('express');
-const router = require('./src/app.router');
+const router = require('./app.router');
 require('dotenv').config();
 
 const app = express();
@@ -20,5 +20,4 @@ app.listen(port, () => {
 process.on('SIGINT', () => {
   shell.rm('-rf', './temp/*'); // cleanup temp folder
   shell.exit(); // graceful shutdown
-  process.exit();
 });
