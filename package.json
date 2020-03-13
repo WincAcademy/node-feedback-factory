@@ -12,8 +12,13 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WincAcademy/node-feedback-factory.git"
+  },
   "devDependencies": {
     "@types/express": "^4.17.3",
+    "@types/htmlhint": "^0.9.1",
     "@types/node": "^13.9.0",
     "@types/shelljs": "^0.8.6",
     "@types/shelljs-exec-proxy": "^0.1.0",
