@@ -26,12 +26,20 @@ const rules = [
 
 module.exports = {
   rules: rules,
-  extends: 'eslint:recommended',
+  plugins: ['react'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended'
+  ],
   parserOptions: {
-    ecmaVersion: 11
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
   env: {
-    es2020: true,
-    browser: true
+    node: true,
+    browser: true,
+    es2020: true
   }
 };

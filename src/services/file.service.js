@@ -3,7 +3,7 @@ const { readdir } = require('fs').promises;
 const File = require('../models/File');
 
 const defaultCriteria = {
-  excludedDirectories: ['node_modules'],
+  excludedDirectories: ['node_modules', 'public'],
   allowedExtensions: ['.js', '.css', 'html']
 };
 
@@ -14,18 +14,19 @@ const defaultCriteria = {
  * @param  {object} criteria
  * @return {Promise<File[]>}
  */
-async function getFiles(dir, criteria = defaultCriteria) {
+async function getFiles(dir, criteria = {}) {
+  const options = Object.assign({}, defaultCriteria, criteria);
   const dirents = await readdir(dir, { withFileTypes: true });
   const files = await Promise.all(dirents.map((dirent) => {
     const path = resolve(dir, dirent.name);
 
     if (dirent.isDirectory()) {
-      const disallowed = criteria.excludedDirectories.includes(dirent.name);
+      const disallowed = dirent.name.startsWith('.') || options.excludedDirectories.includes(dirent.name);
       return disallowed ? null : getFiles(path);
     }
 
     const file = new File(dirent.name, dir);
-    const allowed = criteria.allowedExtensions.includes(file.extension);
+    const allowed = options.allowedExtensions.includes(file.extension);
     return allowed ? file : null;
   }));
 
