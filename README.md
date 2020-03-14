@@ -37,7 +37,7 @@ $ "cleanup": "rm -rf ./temp/*"
 Call the `/feedback` endpoint with the query parameter "repo":
 
     localhost:3000/feedback?repo=WincAcademy/react-groceries-list
-    
+
 ## Documentation
 
 #### Adding a route
@@ -47,6 +47,10 @@ Add routes to the application router in `src/app.router.js`. Routes should have 
 #### Creating a validator
 
 Create and export a new class in `src/validators`. The validator should have at least;
+
 - A property named `extension` which defines the supported extension (i.e. '.scss').
 - A method named `run` which accepts a `code` parameter.
 
+## Deployment
+
+Deployed to Heroku: https://winc-feedback-factory.herokuapp.com/feedback
