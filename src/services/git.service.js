@@ -18,6 +18,8 @@ const PROVIDERS = {
  * @param  {object} provider
  */
 async function getRepository(name, provider = PROVIDERS.GitHub) {
+  if (!name) throw "No repository given";
+
   const id = `${name.replace("/", ".")}.${provider.name}`.toLowerCase();
 
   if (REPOSITORIES[id]) {
