@@ -1,13 +1,13 @@
-const { resolve, join } = require('path');
-const shell = require('shelljs-exec-proxy');
-const Repository = require('../models/Repository');
+const { resolve, join } = require("path");
+const shell = require("shelljs-exec-proxy");
+const Repository = require("../models/Repository");
 
-const STORAGE_PATH = resolve('./temp');
+const STORAGE_PATH = resolve("./temp");
 const REPOSITORIES = {}; // lazy cache using a hashmap
 const PROVIDERS = {
   GitHub: {
-    name: 'GitHub',
-    url: 'http://www.github.com'
+    name: "GitHub",
+    url: "http://www.github.com"
   }
 };
 
@@ -18,7 +18,7 @@ const PROVIDERS = {
  * @param  {object} provider
  */
 async function getRepository(name, provider = PROVIDERS.GitHub) {
-  const id = `${name.replace('/', '.')}.${provider.name}`.toLowerCase();
+  const id = `${name.replace("/", ".")}.${provider.name}`.toLowerCase();
 
   if (REPOSITORIES[id]) {
     return REPOSITORIES[id]; // return from cache
@@ -45,8 +45,8 @@ async function getRepository(name, provider = PROVIDERS.GitHub) {
 async function cloneRepository(url, dir) {
   // (1) clone the git repo with the least amount of history possible
   // and (2) remove the .git folder in its entirety
-  shell.git.clone('--depth=1', url, dir);
-  shell.rm('-rf', `${dir}/.git`);
+  shell.git.clone("--depth=1", url, dir);
+  shell.rm("-rf", `${dir}/.git`);
 }
 
 module.exports = { getRepository, cloneRepository };

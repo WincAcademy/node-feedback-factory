@@ -1,7 +1,6 @@
-const { resolve, extname } = require('path');
+const { resolve, extname } = require("path");
 
 class File {
-
   /**
    * @param {string} name
    * @param {string} dir
@@ -12,7 +11,6 @@ class File {
     this.path = resolve(dir, name);
     this.extension = extname(name);
   }
-
 }
 
 module.exports = File;

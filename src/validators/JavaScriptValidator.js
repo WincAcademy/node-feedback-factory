@@ -1,10 +1,10 @@
-const esLint = require('eslint');
+const esLint = require("eslint");
 const esLinter = new esLint.Linter();
-const esLintConfig = require('../config/eslint.config');
-const ValidationResult = require('../models/ValidationResult');
+const esLintConfig = require("../config/eslint.config");
+const ValidationResult = require("../models/ValidationResult");
 
 class JavaScriptValidator {
-  extension = '.js';
+  extension = ".js";
 
   async run(code) {
     const errors = esLinter.verify(code, esLintConfig);

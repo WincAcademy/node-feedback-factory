@@ -1,5 +1,4 @@
 class Feedback {
-
   /**
    * @param {File} file
    * @param {string} code
@@ -14,7 +13,6 @@ class Feedback {
     };
     this.result = result;
   }
-
 }
 
 module.exports = Feedback;

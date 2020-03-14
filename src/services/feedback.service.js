@@ -1,6 +1,6 @@
-const { readFile } = require('fs').promises;
-const Validators = require('../validators');
-const Feedback = require('../models/Feedback');
+const { readFile } = require("fs").promises;
+const Validators = require("../validators");
+const Feedback = require("../models/Feedback");
 
 /**
  * @returns {Promise<Feedback[]>}
@@ -20,10 +20,14 @@ async function getFeedback(files) {
  * @returns {Promise<ValidationResult>}
  */
 async function validateCode(code, extension) {
-  const validator = Validators.find(validator => validator.extension === extension);
+  const validator = Validators.find(
+    validator => validator.extension === extension
+  );
 
   if (!validator) {
-    throw new Error(`Unable to validate unsupported file extension "${extension}"`);
+    throw new Error(
+      `Unable to validate unsupported file extension "${extension}"`
+    );
   }
 
   return await validator.run(code);

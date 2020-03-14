@@ -1,5 +1,4 @@
 class Repository {
-
   /**
    * @param {string} id
    * @param {string} name
@@ -14,7 +13,6 @@ class Repository {
     this.path = path;
     this.provider = provider;
   }
-
 }
 
 module.exports = Repository;

@@ -1,5 +1,4 @@
 class ValidationResult {
-
   /**
    * @param {boolean} passed
    * @param {object} output
@@ -8,7 +7,6 @@ class ValidationResult {
     this.passed = passed;
     this.output = output;
   }
-
 }
 
 module.exports = ValidationResult;

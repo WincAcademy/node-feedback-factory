@@ -1,10 +1,10 @@
-const htmlHint = require('htmlhint');
+const htmlHint = require("htmlhint");
 const htmlHinter = new htmlHint.HTMLHint();
 const htmlHinterConfig = {};
-const ValidationResult = require('../models/ValidationResult');
+const ValidationResult = require("../models/ValidationResult");
 
 class HtmlValidator {
-  extension = '.html';
+  extension = ".html";
 
   async run(code) {
     const errors = htmlHinter.verify(code);
