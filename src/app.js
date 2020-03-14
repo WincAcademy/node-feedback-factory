@@ -4,8 +4,8 @@ const router = require("./app.router");
 require("dotenv").config();
 
 const app = express();
-const name = process.env.APP_NAME;
-const port = process.env.APP_PORT;
+const name = process.env.NAME || "Feedback Factory";
+const port = process.env.PORT;
 
 if (!shell.which("git")) {
   throw new Error(`${name} requires Git to be installed.`);
