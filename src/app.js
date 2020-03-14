@@ -14,7 +14,7 @@ if (!shell.which("git")) {
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`${name} is listen on port ${port}`);
+  console.log(`${name} is listening on port ${port}`);
 });
 
 process.on("SIGINT", () => {
