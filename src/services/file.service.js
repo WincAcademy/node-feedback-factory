@@ -4,7 +4,7 @@ const File = require("../models/File");
 
 const defaultCriteria = {
   excludedDirectories: ["node_modules", "public"],
-  allowedExtensions: [".js", ".css", "html"]
+  allowedExtensions: [".js", ".css", ".html"]
 };
 
 /**
