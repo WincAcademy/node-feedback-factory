@@ -16,8 +16,8 @@ const defaultCriteria = {
  */
 async function getFiles(dir, criteria = {}) {
   const options = Object.assign({}, defaultCriteria, criteria);
-  console.log("dir", dir);
   const dirents = await readdir(dir, { withFileTypes: true });
+
   const files = await Promise.all(
     dirents.map(dirent => {
       const path = resolve(dir, dirent.name);
