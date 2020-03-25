@@ -1,6 +1,7 @@
 const shell = require("shelljs-exec-proxy");
 const express = require("express");
 const router = require("./app.router");
+const { cors } = require("./middleware");
 require("dotenv").config();
 
 const app = express();
@@ -11,6 +12,7 @@ if (!shell.which("git")) {
   throw new Error(`${name} requires Git to be installed.`);
 }
 
+app.use(cors);
 app.use(router);
 
 app.listen(port, () => {
