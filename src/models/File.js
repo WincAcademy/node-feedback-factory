@@ -1,14 +1,15 @@
-const { resolve, extname } = require("path");
+const { extname } = require("path");
 
 class File {
   /**
    * @param {string} name
    * @param {string} dir
+   * @param {string} path
    */
-  constructor(name, dir) {
+  constructor(name, dir, path) {
     this.name = name;
     this.dir = dir;
-    this.path = resolve(dir, name);
+    this.path = path;
     this.extension = extname(name);
   }
 }
