@@ -34,9 +34,11 @@ $ "cleanup": "rm -rf ./temp/*"
 
 ## Usage
 
-Call the `/feedback` endpoint with the query parameter "repo":
+Call the `/feedback` endpoint with the query parameters "user" and "repo":
 
-    localhost:3000/feedback?repo=WincAcademy/react-groceries-list
+    localhost:3000/feedback?user=WincAcademy&repo=react-groceries-list
+    
+The endpoint also supports different branches using the "branch" parameter. The default is set to "master".
 
 ## Documentation
 
@@ -46,10 +48,11 @@ Add routes to the application router in `src/app.router.js`. Routes should have 
 
 #### Creating a validator
 
-Create and export a new class in `src/validators`. The validator should have at least;
+Create and export a new class in `src/validators`. The validator should at least;
 
-- A property named `extension` which defines the supported extension (i.e. '.scss').
-- A method named `run` which accepts a `code` parameter.
+- Have a property named `extension` which defines the supported extension (i.e. '.scss').
+- Have a method named `run` which accepts a `code` parameter.
+- Return an instance of `ValidationResult`
 
 ## Deployment
 
