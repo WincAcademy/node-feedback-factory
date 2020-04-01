@@ -8,7 +8,7 @@ class HtmlValidator {
 
   async run(code) {
     const errors = htmlHinter.verify(code);
-    return new ValidationResult(errors.length === 0, errors);
+    return new ValidationResult(errors);
   }
 }
 

@@ -8,7 +8,7 @@ class CssValidator {
   async run(code) {
     const result = await styleLint.lint({ code, config: styleLintConfig });
     const errors = result.results[0].warnings; // get the first and only lint result
-    return new ValidationResult(errors.length === 0, errors);
+    return new ValidationResult(errors);
   }
 }
 

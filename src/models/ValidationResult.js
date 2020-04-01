@@ -1,11 +1,10 @@
 class ValidationResult {
   /**
-   * @param {boolean} passed
-   * @param {object} output
+   * @param {array} errors
    */
-  constructor(passed, output) {
-    this.passed = passed;
-    this.output = output;
+  constructor(errors) {
+    this.passed = errors.length === 0;
+    this.errors = errors;
   }
 }
 
