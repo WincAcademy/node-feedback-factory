@@ -12,10 +12,14 @@ async function getFeedback(req, res) {
     const feedback = await feedbackService.getFeedback(files);
     console.log("Retrieved feedback for", repo);
 
-    res.json(feedback);
+    res.json({
+      data: feedback
+    });
   } catch (err) {
-    console.error(err); // TODO: Gracefully handle logs (using Winston) instead of writing to the console
-    res.status(400).send("Something went wrong");
+    console.error(err); // TODO: Implement Winston logging instead of writing to the console
+    res.status(400).send({
+      error: "Something went wrong"
+    });
   }
 }
 
