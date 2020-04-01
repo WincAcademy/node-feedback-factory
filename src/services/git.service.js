@@ -24,16 +24,19 @@ async function getRepository(repo) {
  * Download the contents of the given repository.
  *
  * @param   {string} repo
+ * @param   {string} branch
  * @returns {Promise}
  */
-async function downloadRepository(repo) {
+async function downloadRepository(repo, branch = 'master') {
   const [user, repoName] = repo.toLowerCase().split("/");
   const path = join(STORAGE_PATH, user, repoName);
-  const zipUrl = `https://github.com/${repo}/archive/master.zip`;
+  const zipUrl = `https://github.com/${repo}/archive/${branch}.zip`;
 
   await download(zipUrl, path, { extract: true });
 
-  cacheRepo(path, repo);
+  const targetPath = join(path, `${repoName}-${branch}`);
+
+  cacheRepo(targetPath, repo);
 
   return getFromCache(repo);
 }
