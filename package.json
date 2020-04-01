@@ -10,8 +10,12 @@
     "cleanup": "rm -rf ./temp/*"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
+  "authors": [
+    "Jason Koolman <jason@wincacademy.nl>",
+    "Niels Bom <niels@wincacademy.nl>",
+    "Marjolein Tromp <marjolein@wincacademy.nl>"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/WincAcademy/node-feedback-factory.git"
