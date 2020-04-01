@@ -6,7 +6,8 @@ const feedbackController = require("./controllers/feedback.controller");
 const router = express.Router();
 
 router.get("/feedback", validate([
-  query("repo").isString().matches(".\\/."),
+  query("user").matches(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i),
+  query("repo").isString(),
   query("branch").isString().optional()
 ]), feedbackController.getFeedback);
 
