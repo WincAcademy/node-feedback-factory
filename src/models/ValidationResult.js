@@ -1,6 +1,6 @@
 class ValidationResult {
   /**
-   * @param {array} errors
+   * @param {ValidationError[]} errors
    */
   constructor(errors) {
     this.passed = errors.length === 0;

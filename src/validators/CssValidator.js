@@ -1,13 +1,22 @@
 const styleLint = require("stylelint");
 const styleLintConfig = require("../config/stylelint.config");
 const ValidationResult = require("../models/ValidationResult");
+const ValidationError = require("../models/ValidationError");
 
 class CssValidator {
   extension = ".css";
 
   async run(code) {
     const result = await styleLint.lint({ code, config: styleLintConfig });
-    const errors = result.results[0].warnings; // get the first and only lint result
+    const output = result.results[0].warnings; // get the first and only lint result
+    const errors = output.map(e => new ValidationError(
+      e.rule,
+      e.severity,
+      e.text,
+      e.line,
+      e.column
+    ));
+
     return new ValidationResult(errors);
   }
 }
