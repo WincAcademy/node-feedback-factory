@@ -32,6 +32,7 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "directory-tree": "^2.2.4",
     "dotenv": "^8.2.0",
     "download": "^7.1.0",
     "eslint": "^6.8.0",

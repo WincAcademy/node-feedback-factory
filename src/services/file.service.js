@@ -1,5 +1,6 @@
 const { resolve } = require("path");
 const { readdir } = require("fs").promises;
+const dirTree = require("directory-tree");
 const File = require("../models/File");
 
 const defaultCriteria = {
@@ -39,4 +40,23 @@ async function getFiles(root, dir = root, criteria = {}) {
   return Array.prototype.concat(...files).filter(Boolean); // flatten array of arrays
 }
 
-module.exports = { getFiles };
+/**
+ * Get the tree of the given directory.
+ *
+ * @param {string} path
+ * @param {object} options
+ * @returns {Promise<any>}
+ */
+async function directoryTree(path, options = {}) {
+  const onFile = (file) => {
+    file.path = file.path.replace(path, '');
+  };
+  const onDir = (dir) => {
+    dir.path = dir.path.replace(path, '');
+  };
+
+  return dirTree(path, options, onFile, onDir);
+
+}
+
+module.exports = { getFiles, directoryTree };
