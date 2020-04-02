@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.get("/feedback", validate([
   query("user").matches(/^[a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38}$/i),
-  query("repo").isString(),
+  query("repo").isString().notEmpty(),
   query("branch").isString().optional()
 ]), feedbackController.getFeedback);
 
