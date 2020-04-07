@@ -4,12 +4,14 @@ A lightweight Node.js implementation to validate code from public repositories.
 
 ## Features
 
-- Exposes a simple REST API
-- Fetches repository contents from different Git providers
-- Simple in-memory cache to prevent cloning the same repo twice
-- Class-based validation for any file extension
-- Consistent code-style following best-practices
-- Asynchronous to the bone
+- :zap: Exposes a REST API
+- :zap: Fetches repository contents from different Git providers
+- :zap: Simple in-memory cache to prevent cloning the same repo twice
+- :zap: Class-based validation for any file extension
+- :zap: Consistent code-style following best-practices
+- :zap: Asynchronous to the bone
+
+Made with :heart: by your Winc teachers.
 
 ## Getting started
 
