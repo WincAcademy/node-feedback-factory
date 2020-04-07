@@ -2,12 +2,12 @@ const rules = [
   "semi",
   "yoda",
   "eqeqeq",
+  "default-case",
+  "array-callback-return",
   "no-var",
   "no-console",
   "no-unused-vars",
   "no-cond-assign",
-  "array-callback-return",
-  "default-case",
   "no-else-return",
   "no-empty-function",
   "no-invalid-this",
@@ -18,11 +18,8 @@ const rules = [
   "no-useless-concat",
   "no-useless-return",
   "no-magic-numbers",
-  "no-unused-expressions"
-].reduce((obj, rule) => {
-  obj[rule] = 1;
-  return obj;
-}, {});
+  "no-unused-expressions",
+].reduce((obj, rule) => { obj[rule] = 1; return obj }, {});
 
 module.exports = {
   rules: rules,

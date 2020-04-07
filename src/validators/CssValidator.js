@@ -1,5 +1,5 @@
-const styleLint = require("stylelint");
-const styleLintConfig = require("../config/stylelint.config");
+const Linter = require("stylelint");
+const config = require("../config/stylelint.config");
 const ValidationResult = require("../models/ValidationResult");
 const ValidationError = require("../models/ValidationError");
 
@@ -7,7 +7,7 @@ class CssValidator {
   extension = ".css";
 
   async run(code) {
-    const result = await styleLint.lint({ code, config: styleLintConfig });
+    const result = await Linter.lint({ code, config });
     const output = result.results[0].warnings; // get the first and only lint result
     const errors = output.map(e => new ValidationError(
       e.rule,
