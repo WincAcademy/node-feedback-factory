@@ -20,7 +20,7 @@ async function getFeedback(req, res) {
     const files = await fileService.getFiles(repo.path);
     const result = await feedbackService.getFeedback(files);
     const tree = await fileService.directoryTree(repo.path);
-    const data = { result, tree };
+    const data = { repo, result, tree };
     console.log("Retrieved feedback for", repo);
     res.json({ data });
   } catch (err) {
