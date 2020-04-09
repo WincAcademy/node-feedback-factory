@@ -5,7 +5,7 @@ const ValidationResult = require("../models/ValidationResult");
 const ValidationError = require("../models/ValidationError");
 
 class TypeScriptValidator {
-  extension = ".ts";
+  extensions = [".ts"];
   severities = ["off", "warning", "error"];
 
   constructor() {

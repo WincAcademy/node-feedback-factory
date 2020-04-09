@@ -4,7 +4,7 @@ const ValidationResult = require("../models/ValidationResult");
 const ValidationError = require("../models/ValidationError");
 
 class CssValidator {
-  extension = ".css";
+  extensions = [".css", ".scss", ".less", ".sass"];
 
   async run(code) {
     const result = await Linter.lint({ code, config });

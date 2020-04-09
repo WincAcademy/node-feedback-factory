@@ -21,7 +21,7 @@ async function getFeedback(files) {
  */
 async function validateCode(code, extension) {
   const validator = Validators.find(
-    validator => validator.extension === extension
+    validator => validator.extensions.includes(extension)
   );
 
   if (!validator) {

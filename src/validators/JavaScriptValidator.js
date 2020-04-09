@@ -4,7 +4,7 @@ const ValidationResult = require("../models/ValidationResult");
 const ValidationError = require("../models/ValidationError");
 
 class JavaScriptValidator {
-  extension = ".js";
+  extensions = [".js", ".jsx"];
   severities = ["off", "warning", "error"];
 
   constructor() {

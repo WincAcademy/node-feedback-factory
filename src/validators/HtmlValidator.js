@@ -4,7 +4,7 @@ const ValidationResult = require("../models/ValidationResult");
 const ValidationError = require("../models/ValidationError");
 
 class HtmlValidator {
-  extension = ".html";
+  extensions = [".html"];
 
   async run(code) {
     // TODO: HtmlHinter is not living up to its expectations, replace with more powerful (CLI) alternative
