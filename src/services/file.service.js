@@ -4,8 +4,8 @@ const dirTree = require("directory-tree");
 const File = require("../models/File");
 
 const defaultCriteria = {
-  excludedDirectories: ["node_modules", "public"],
-  allowedExtensions: [".ts", ".js", ".css", ".html"]
+  excludedDirectories: ["node_modules", "dist"],
+  allowedExtensions: [".js", ".jsx", ".ts", ".css", ".scss", ".less", ".sass", ".html"]
 };
 
 /**
