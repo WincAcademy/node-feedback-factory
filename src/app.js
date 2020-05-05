@@ -2,6 +2,7 @@ const shell = require("shelljs-exec-proxy");
 const express = require("express");
 const router = require("./app.router");
 const { cors } = require("./middleware");
+const { logger } = require("./util");
 require("dotenv").config();
 
 const app = express();
@@ -16,7 +17,7 @@ app.use(cors);
 app.use(router);
 
 app.listen(port, () => {
-  console.log(`${name} is listening on port ${port}`);
+  logger.info(`${name} is listening on port ${port}`);
 });
 
 process.on("SIGINT", () => {

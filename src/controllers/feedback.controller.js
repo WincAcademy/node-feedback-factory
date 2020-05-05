@@ -1,4 +1,4 @@
-const { capture } = require("../util");
+const { logger, capture } = require("../util");
 const gitService = require("../services/git.service");
 const fileService = require("../services/file.service");
 const feedbackService = require("../services/feedback.service");
@@ -21,10 +21,10 @@ async function getFeedback(req, res) {
     const result = await feedbackService.getFeedback(files);
     const tree = await fileService.directoryTree(repo.path);
     const data = { repo, result, tree };
-    console.log("Retrieved feedback for", repo);
+    logger.info("Feedback retrieved", repo);
     res.json({ data });
   } catch (err) {
-    console.error(err); // TODO: Implement Winston logging instead of writing to the console
+    logger.error("Failed to retrieve feedback", repo);
     res.status(500).send({
       error: "Unable to retrieve feedback"
     });

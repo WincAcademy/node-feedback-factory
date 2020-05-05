@@ -1,3 +1,5 @@
+const logger = require("./logger");
+
 /**
  * Slugify the given string.
  *
@@ -26,4 +28,4 @@ function capture(promise) {
     .catch(error => [error, undefined]);
 }
 
-module.exports = { slugify, capture };
+module.exports = { logger, slugify, capture };
