@@ -41,6 +41,7 @@
     "express": "^4.17.1",
     "express-validator": "^6.4.1",
     "htmlhint": "^0.11.0",
+    "rate-limiter-flexible": "^2.1.4",
     "shelljs": "^0.8.4",
     "shelljs-exec-proxy": "^0.1.1",
     "stylelint": "^13.3.3",

@@ -1,7 +1,7 @@
 const shell = require("shelljs-exec-proxy");
 const express = require("express");
 const router = require("./app.router");
-const { cors } = require("./middleware");
+const { cors, rateLimiter } = require("./middleware");
 const { logger } = require("./util");
 require("dotenv").config();
 
@@ -14,6 +14,7 @@ if (!shell.which("git")) {
 }
 
 app.use(cors);
+app.use(rateLimiter);
 app.use(router);
 
 app.listen(port, () => {
