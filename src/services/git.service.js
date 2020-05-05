@@ -1,7 +1,7 @@
 const { resolve, join } = require("path");
 const download = require("download");
 
-const STORAGE_PATH = resolve("./temp");
+const STORAGE_PATH = resolve("./temp/storage");
 const CACHE = {}; // lazy cache using a hashmap
 
 const hasRepoCached = repo => CACHE.hasOwnProperty(repo);

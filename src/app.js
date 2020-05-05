@@ -22,6 +22,6 @@ app.listen(port, () => {
 });
 
 process.on("SIGINT", () => {
-  shell.rm("-rf", "./temp/*"); // cleanup temp folder
+  shell.rm("-rf", "./temp/storage/*"); // cleanup storage folder
   shell.exit(); // graceful shutdown
 });
