@@ -1,6 +1,6 @@
 {
   "name": "node-feedback-factory",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A lightweight Node.js implementation to validate code from public repositories.",
   "main": "src/app.js",
   "scripts": {
