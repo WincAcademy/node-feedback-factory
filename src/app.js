@@ -1,5 +1,6 @@
 const shell = require("shelljs-exec-proxy");
 const express = require("express");
+const helmet = require("helmet");
 const router = require("./app.router");
 const { cors, rateLimiter } = require("./middleware");
 const { logger } = require("./util");
@@ -14,6 +15,7 @@ if (!shell.which("git")) {
 }
 
 app.use(cors);
+app.use(helmet());
 app.use(rateLimiter);
 app.use(router);
 
