@@ -7,6 +7,7 @@ A lightweight Node.js implementation to validate code from public repositories.
 - :zap: Exposes a REST API
 - :zap: Fetches repository contents from different Git providers
 - :zap: Simple in-memory cache to prevent cloning the same repo twice
+- :zap: Validates incoming requests
 - :zap: Class-based validation for any file extension
 - :zap: Consistent code-style following best-practices
 - :zap: Asynchronous to the bone
@@ -31,7 +32,7 @@ All available NPM tasks:
 $ "start": "node ./app.js",
 $ "watch": "nodemon ./app.js",
 $ "test": "jest"
-$ "cleanup": "rm -rf ./temp/*"
+$ "cleanup": "rm -rf ./temp/storage/*"
 ```
 
 ## Usage
@@ -55,6 +56,16 @@ Create and export a new class in `src/validators`. The validator should at least
 - Have a property named `extension` which defines the supported extension (i.e. '.scss').
 - Have a method named `run` which accepts a `code` parameter.
 - Return an instance of `ValidationResult`
+
+## Modules
+
+Built on the shoulders of giants.
+
+- Node.js
+- Express
+- ShellJS
+- Winston
+- Jest
 
 ## Deployment
 
